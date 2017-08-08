@@ -23848,7 +23848,12 @@ header {
   line-height: 34px;
   font-weight: 400;
   text-align: center;
-  margin-top: 135px;
+  //margin-top: 135px;
+  margin: 0;
+}
+
+.component.searchResults .component.item-gallery figure {
+  position: static;
 }
 
 .component.searchResults .component.item-gallery figure a img {
@@ -23898,6 +23903,7 @@ div.promotionFreeShippingSearch {
   width: 100%;
   height: 400px;
   margin: auto;
+  padding: 0;
 }
 
 .component.searchResults .component.item-gallery article.two-promos {
