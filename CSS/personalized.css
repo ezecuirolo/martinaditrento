@@ -24050,7 +24050,7 @@ form#search-submit {
 }
 
 .component.searchResults  li.row.two-promos {
-  //height: auto;
+  height: auto;
 }
 
 .component.searchResults .item-list .row {
@@ -24089,4 +24089,18 @@ form#search-submit {
 
 .item-list .promoRibbonSearchResult {
   display: none;
+}
+footer {
+    border-top: none;
+    position: relative;
+}
+body#page-VIP .wrapper.main:after {
+    content: "a";
+    clear: both;
+    height: 1px;
+    display: block;
+    width: 100%;
+}
+body#page-VIP .wrapper.main {
+    float: none;
 }
