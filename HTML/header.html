@@ -11,30 +11,99 @@
  <div class="pushmenu pushmenu-left cart-box-container">
         <div class="cart-list">
             <span id="close-pushmenu">Cerrar</span>
-            <ul class="list">
-                <li>
-                    <a href="#" title="" class="cart-product-image"><img src="../IMAGES/products/1.jpg" alt="Product"></a>
-                    <div class="text">
-                        <p class="product-name">Nombre</p>
-                        <p class="product-price">117222</p>
-                        <p class="product-price">$489.00</p>
-                        <p class="qty">Cantidad:01</p>
-                        <a href="#" class="delete-item"></a>
-                    </div>
-                </li> 
-                <li>
-                    <a href="#" title="" class="cart-product-image"><img src="../IMAGES/products/2.jpg" alt="Product"></a>
-                    <div class="text">
-                        <p class="product-name">Nombre</p>
-                        <p class="product-price">117222</p>
-                        <p class="product-price">$489.00</p>
-                        <p class="qty">Cantidad:01</p>
-                        <a href="#" class="delete-item"></a>
-                    </div>
-                </li>                                   
-            </ul>
+           
+           
+           
+           
+           
+           
+           
+<script>
+$(function() {
+	
+	$.ajax({
+		url: "/cart",
+		success: function (data) {
+			var cartLenght = $(data).find('a.delete').length;
+			$('.cart-list .total').append('<p>'+$(data).find('span#total-to-pay').text()+'</p>');
+			
+			if(cartLenght > 0) {
+				$('.cart-icon .icon-itens').text(cartLenght);
+				$('.user-cart .preview-itens .itens-empty').remove();
+												
+				$(data).find('#cartForm .carritoresp .item:not(.order-price-detail)').each(function(index) {
+					var _ = $(this);
+					$('.user-cart .preview-itens').each(function() {
+						$(this).append('<div class="preview-item"></div>');
+						//Structure
+						
+						$(this).find('.preview-item').eq(index).append('<div class="item-img"></div><div class="item-info"></div>');
+						//Img
+						$(this).find('.preview-item').eq(index).find('.item-img').append('<img class="item-photo" src="' + _.find('.colFoto img').attr('src') + '">');
+						//Title
+						$(this).find('.preview-item').eq(index).find('.item-info').append('<p class="info-title">' + _.find('.itemDesc .colTitulo .title').text() + '<br>Quantidade: ' + _.find('.itemDesc .colCant .itemQtyField').val() +'</p>');
+						if($(this).find('.itemDesc .colTitulo .variation-details').length) {
+							$(this).find('.preview-item').eq(index).find('.item-info').append('<p class="info-variation">' + _.find('.itemDesc .colTitulo .variation-details').text() + '</p>');
+						}
+						//Price
+						if(!_.find('.itemDesc .colPrice .price').length) {
+							$(this).find('.preview-item').eq(index).find('.item-info').append('<p class="info-price">R$ ' + parseFloat(_.find('.itemDesc .colPrice').attr('data-cost')).toFixed(2).replace('.',',') + '</p>');
+						} else {
+							$(this).find('.preview-item').eq(index).find('.item-info').append('<p class="info-old-price"><span>' + _.find('.itemDesc .colPrice del').text() + '</span></p>');
+							$(this).find('.preview-item').eq(index).find('.item-info').append('<p class="info-price">' + _.find('.itemDesc .colPrice ins').text() + '</p>');
+						}
+						//Discount
+						if(!$(this).find('.itemDesc .colTitulo .promotionPrice').text() == '') {
+							$(this).find('.preview-item').eq(index).find('.item-info').append('<p class="info-discount">' + _.find('.itemDesc .colTitulo .promotionPrice').text() + '</p>');
+						}
+						
+					})
+				});
+				
+				
+				//$('body#page-CART').find('.total').append(find('#total-to-pay').attr('data-cost'));
+				
+				//$('body#page-CART').html($('body#page-CART').html().replace(/0/g, find('#total-to-pay').attr('data-cost')));
+			}
+		}
+	});
+
+});
+
+</script>
+           
+           
+           
+       <div class="user-cart">
+					<a href="/cart" class="cart-icon">
+						<img src="../IMAGES/cart_icon.png" alt="Carrinho">
+						<span class="icon-itens">1</span>
+					</a>
+					<div class="cart-preview">
+						<div class="preview-container">
+							<div class="preview-title">Minhas compras</div>
+							<div class="preview-itens">
+							<ul class="list">
+							  <li class="preview-item">
+                            
+                            
+                            
+                            
+                            
+                            
+                               </li>
+                               </ul>
+                            </div>
+							<div class="preview-button">
+								<a href="/cart">Comprar agora</a>
+							</div>
+						</div>
+					</div>
+				</div>
+           
+     
             <div class="cart-bottom">
-                <p class="total"><span>Total:</span> $89.90</p>
+                <p class="total"><span>Total:</span> </p>
                 <a class="checkout" href="../IMAGES/pagar.jpg" title="">Pagar <i class="link-icon-white"></i></a>
                 <a class="edit-cart" href="cart.html" title="edit cart">Editar mi carrito</a>
             </div>
