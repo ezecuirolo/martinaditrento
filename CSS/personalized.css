@@ -19234,9 +19234,6 @@ i {
 
 #footer.footer-v3 {
   text-align: left;
-  height: 0;
-  position: absolute;
-  bottom: -50px;
 }
 
 #footer.footer-v3 p {
