@@ -327,11 +327,119 @@ body#page-VIP .wrapper.main {
 	position: relative;
 	margin: 0;
 }
+ul.ch-carousel-list {
+  width: 130px !important;
+}
 
 .component.picviewer .ch-carousel-list li {
-  margin: 0;
+  margin: 0 !important;
   width: 130px !important;
   height: auto !important;
+  margin-bottom: 25px !important;
+}
+
+.component.picviewer .ch-carousel-list li img {
+  display: block;
+  margin: auto;
+}
+
+.ch-viewervip-triggers ul {
+  float: right;
+}
+
+.ch-viewervip-triggers ul li {
+  border: 1px solid white;
+  display: inline-block;
+  float: none;
+  height: 40px;
+  margin: 0 5px 6px 0;
+  opacity: 0.3;
+  position: relative;
+  width: 40px;
+}
+
+.ch-viewervip-triggers .ch-thumbnail-on {
+  padding: 0;
+}
+
+.ch-viewervip-display {
+  display: inline-block;
+  width: 80%;
+}
+
+ul.clearfix.ch-viewervip-content {
+  float: left;
+  width: 130%;
+}
+
+.ch-carousel.ch-viewervip-triggers {
+  float: right;
+  width: 20%;
+}
+
+ul.content-list.no-achicar.ch-carousel-list {
+  width: 4569px !important;
+}
+
+ul.content-list.no-achicar.ch-carousel-list li {
+  margin: 0 !important;
+  width: 1523px !important;
+  height: 100% !important;
+}
+
+.vipWrapper {
+  width: 30%;
+  margin-left: 50px;
+}
+
+.component.vip h1 {
+  font-family: "Poppins" !important;
+  font-size: 30px !important;
+  line-height: 30px !important;
+  position: relative !important;
+  text-transform: capitalize !important;
+  font-weight: 400 !important;
+  color: #000 !important;
+  margin-bottom: 0px !important;
+  margin-top: 20px !important;
+  padding-bottom: 0px !important;
+}
+
+span#fb-like-button.FbLikeButton {
+  display: none !important;
+}
+
+.component.vip span.ch-price.price,
+.component.vip span.ch-price sup {
+  display: block;
+  font-style: normal;
+  color: #e95252 !important;
+  margin-top: 10px !important;
+  font-size: 30px !important;
+  font-weight: 400 !important;
+  font-family: "Poppins" !important;
+}
+
+.component.vip dd {
+  font-style: normal;
+  color: #979797;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Poppins";
+  padding-bottom: 30px;
+}
+
+dl.priceInfo dd.installments span.withMP {
+  margin-left: 5px;
+}
+
+dl,
+.PaymentList li {
+  margin-bottom: 0;
+}
+
+.PaymentList li:first-child {
+  height: 70px;
 }
 
 /* Both are the same elements, but it can apply styles before the component initialization */
