@@ -18368,11 +18368,11 @@ nav.pagination a.next:hover i, nav.pagination a.prev:hover i {
   padding-top: 0px;
   width: auto;
 }
-
 .mega-menu ul.navbar-nav .sub-menu ul.menu-level-1 li.level2.images img {
+  width:100%;
+  height:auto;
   max-width: 300px;
 }
-
 .mega-menu ul.navbar-nav .sub-menu ul.menu-level-1 li.level2:hover .menu-level-2 {
   left: 0px;
 }

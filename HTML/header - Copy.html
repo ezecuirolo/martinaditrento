@@ -87,43 +87,86 @@
                             <nav class="mega-menu">
                         <!-- Brand and toggle get grouped for better mobile display -->
                           <ul class="nav navbar-nav" id="navbar">
-                            <li class="level1 active"><a href="index.html" title="Home">Home</a></li>
-                            
-                            
-                            
-                            #foreach( $categoryLevel1 in $level1CategoryList )
-             #set($newName= $categoryLevel1.name.toLowerCase())
-              
-              #set($newNameFinal=$newName.replace(" ", ""))
-              
-              #set( $newURLHeader= "../IMAGES/"+$newNameFinal+"_menu.jpg") 
-                            
+                            <li class="level1 active"><a href="index.html" title="Home">Home</a>
+                            </li>
                             <li class="level1 dropdown">
-                                <a href="$categoryLevel1.url" title="$categoryLevel1.name">$categoryLevel1.name</a>
+                                <a href="productos.html" title="Prendas">MUJER</a>
                                 <div class="sub-menu dropdown-menu">
                                   <ul class="menu-level-1">
                                     <li class="level2"><a href="#">Categorias</a>
                                         <ul class="menu-level-2">
-                                            
-                                            
-                                           #foreach( $categoryLevel2 in $categoryLevel1.subCategories )  
-                                            
-                                            <li class="level3"><a href="$categoryLevel2.url" title="$categoryLevel2.name">$categoryLevel2.name</a></li>
-                                            
-                                            #end 
-                                            
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Accesorios</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Fullwidth">Calzado</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catelog Flat">Camisas</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry">Abrigos</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry Flat">Lencería</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Cosmética</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Medias</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Fullwidth">Pantalones y shorts</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catelog Flat">Remeras y musculosas</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry">Trajes de baño</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry Flat">Vestidos y faldas</a></li>
                                         </ul>
                                       </li>
                                     <li class="level2">
-                                        <img src="$newURLHeader" width="460" height="761" alt="$newURLHeader"/>
+                                        <img src="../IMAGES/menudama.jpg" alt="Sub-Menu" />
                                     </li>
                                   </ul>
                               </div>
                               <!-- End Dropdow Menu -->
                             </li>
-                            #end
+                            <li class="level1 dropdown">
+                                <a href="productos-hombre.html" title="Prendas">HOMBRE</a>
+                                <div class="sub-menu dropdown-menu">
+                                  <ul class="menu-level-1">
+                                    <li class="level2"><a href="#">Categorias</a>
+                                        <ul class="menu-level-2">
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Accesorios</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Fullwidth">Calzado</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catelog Flat">Camisas</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry">Abrigos</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Ropa interior</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Medias</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Fullwidth">Pantalones y shorts</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catelog Flat">Remeras y musculosas</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry">Trajes de baño</a></li>
+                                        </ul>
+                                      </li>
+                                    <li class="level2">
+                                        <img src="../IMAGES/menuhombre.jpg" alt="Sub-Menu" />
+                                    </li>
+                                  </ul>
+                              </div>
+                              <!-- End Dropdow Menu -->
+                            </li>
+                            <li class="level1 dropdown">
+                                <a href="productos-teen.html" title="men">ADOLESCENTE</a>
+                                <div class="sub-menu dropdown-menu">
+                                  <ul class="menu-level-1">
+                                    <li class="level2"><a href="#">Categorias</a>
+                                        <ul class="menu-level-2">
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Accesorios</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Fullwidth">Calzado</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catelog Flat">Camisas</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry">Abrigos</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry Flat">Lencería</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Cosmética</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catalog Standar">Medias</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Fullwidth">Pantalones y shorts</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop_Catelog Flat">Remeras y musculosas</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry">Trajes de baño</a></li>
+                                            <li class="level3"><a href="productos.html" title="Shop _ Catalog Masonry Flat">Vestidos y faldas</a></li>
+                                        </ul>
+                                      </li>
+                                    <li class="level2">
+                                        <img src="../IMAGES/menuteen.jpg" alt="Sub-Menu" />
+                                    </li>
+                                  </ul>
+                              </div>
+                              <!-- End Dropdow Menu -->
+                            </li>
                             
-        
+                            </li>
                             <li class="level1"><a href="quienessomos.html" title="ShortCode" target="_self">QUIENES SOMOS</a>
                             </li>
                             <li class="level1"><a href="contacto.html" title="ShortCode" target="_self">CONTACTO</a>
@@ -133,28 +176,11 @@
                         </div>
                         <div class="col-md-2 col-sm-3 col-xs-12" style="padding-right: 0; padding-left: 0">
                             <div class="sign-in">
-                               
-                               
-                               
-                               <form id="searchForm" method="get" action="/jm/com.mercadoshops.web.frontend.page.PageController">
-        
-     
-                             
-                               <input type="hidden" name="view" value="result">
-                            <input type="search" name="q" value="" class="form-control control-search" style="height: 34px; margin: 10px 50px 0 0; padding: 12px;" placeholder="Buscar en nuestra tienda">
-                                
-                                
-                                
-                                
-                                
-                              <span class="input-group-btn">
-                                   <button class="btn btn-default button_search" type="submit" style="margin-top: 6px;"><i data-toggle="dropdown" class="icons icon-magnifier dropdown-toggle"></i></button>
-                              </span>
-                                </form>
+                                <input type="text" class="form-control control-search" style="height: 34px; margin: 10px 50px 0 0; padding: 12px;" placeholder="Buscar en nuestra tienda">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default button_search" type="button" style="margin-top: 6px;"><i data-toggle="dropdown" class="icons icon-magnifier dropdown-toggle"></i></button>
+                                </span>
                             </div>
-                            
-                            
-                            
                             <!-- End search -->
                             <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
                                 <div class="modal-dialog modal-lg">
