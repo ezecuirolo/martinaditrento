@@ -23848,11 +23848,11 @@ header {
   line-height: 34px;
   font-weight: 400;
   text-align: center;
-  margin-top: 110px;
+  margin-top: 135px;
 }
 
 .component.searchResults .component.item-gallery figure a img {
-  max-width: 75%;
+  max-width: 100%;
 }
 
 .item-gallery .promoRibbonSearchResult {
@@ -23895,6 +23895,9 @@ div.promotionFreeShippingSearch {
 
 .component.searchResults .component.item-gallery article {
   border: none;
+  width: 100%;
+  height: 400px;
+  margin: auto;
 }
 
 .component.searchResults .component.item-gallery article.two-promos {
