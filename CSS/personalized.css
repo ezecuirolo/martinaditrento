@@ -23852,7 +23852,7 @@ header {
 }
 
 .component.searchResults .component.item-gallery figure a img {
-  max-width: 100%;
+  width: 100%;
 }
 
 .item-gallery .promoRibbonSearchResult {
@@ -24090,17 +24090,25 @@ form#search-submit {
 .item-list .promoRibbonSearchResult {
   display: none;
 }
+
 footer {
     border-top: none;
     position: relative;
 }
+
 body#page-VIP .wrapper.main:after {
-    content: "a";
+    content: '';
     clear: both;
     height: 1px;
     display: block;
     width: 100%;
 }
+
 body#page-VIP .wrapper.main {
     float: none;
+}
+
+.component.picviewer img, .component.picviewer object, .component.picviewer embed {
+    width: 110%;
+    margin-left: -10%;
 }
