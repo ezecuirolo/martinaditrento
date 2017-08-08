@@ -24095,7 +24095,7 @@ footer {
     position: relative;
 }
 body#page-VIP .wrapper.main:after {
-    content: "a";
+    content: " ";
     clear: both;
     height: 1px;
     display: block;
@@ -24103,4 +24103,90 @@ body#page-VIP .wrapper.main:after {
 }
 body#page-VIP .wrapper.main {
     float: none;
+}
+/*-----------------------------MAIN BANNER*/
+.ch-carousel {
+	width: 100%;
+	overflow: auto;
+	position: relative;
+	/* Enable hardware acceleration */
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+}
+.ch-carousel img {
+	width: 100%;
+	height: auto;
+}
+.ch-carousel-mask {
+	height: 100% !important;
+	overflow: hidden;
+	position: relative;
+	margin: 0;
+	margin-bottom: -30px;
+}
+/* Both are the same elements, but it can apply styles before the component initialization */
+.ch-carousel > ul, .ch-carousel-list {
+	overflow: hidden;
+	-webkit-transition: all .8s ease;
+	transition: all .8s ease;
+	width: -webkit-max-content;
+	width: -moz-max-content;
+	width: max-content;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.content-list li {
+	margin: 0;
+	height: 100% !important;
+}
+.ch-carousel ul.ch-carousel-nofx {
+	-webkit-transition: none;
+	transition: none;
+}
+/* Both are the same elements, but it can apply styles before the component initialization */
+.ch-carousel > ul > li, .ch-carousel-item {
+	display: inline-block;
+	float: left; /* Fixes the inline-block inner space between li elements */
+}
+.ch-carousel-prev {
+	display: none;
+}
+.ch-carousel-next {
+	display: none;
+}
+/* Pagination */
+
+.ch-carousel-pages {
+	font-size: 0;
+	line-height: 0;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
+	top: -10px;
+	position: relative;
+}
+.ch-carousel-pages span {
+	background-color: #F0F0F0;
+	border-radius: 100%;
+	-webkit-box-shadow: inset 1px 1px #888;
+	box-shadow: inset 1px 1px #888;
+	cursor: pointer;
+	display: inline-block;
+	height: 10px;
+	margin: 10px 5px;
+	overflow: hidden;
+	text-indent: -99px;
+	width: 10px;
+}
+.ch-carousel-pages .ch-carousel-selected {
+	background-color: #000;
+}
+.content-list li article {
+	width: 100%;
+}
+.content-list li figure {
+	width: 100%;
+	position: relative;
 }

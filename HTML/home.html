@@ -1,440 +1,357 @@
-<div class="container space-30">
-            <div class="banner-home3-colection-top">
-                <img src="../IMAGES/colleccionppal.jpeg" alt="Banner">
+<div class="container space-30"> #if($showContent)
+  #if($showContentImage)
+  <div  class="ch-carousel main_banner" data-max-items="1">
+    <ul class="content-list">
+      #foreach ($contentImage in $contentImageList)
+      <li style="height: $contentImageMaxHeight">
+        <article class="component article clearfix">
+          <figure> 
+            <!--<div class="bot_comprar"><a href="$contentImage.link" target="_self">COMPRAR</a></div>--> 
+            <span> #if($contentImage.hasLink) <a href="$contentImage.link" rel="nofollow" target="_self"> #end <img src="$contentImage.src" alt="$contentImage.alt"> #if($contentImage.hasLink) </a> #end </span> </figure>
+        </article>
+      </li>
+      #end
+    </ul>
+  </div>
+  #elseif ($showContentText)
+  <div>$contentText</div>
+  #end
+  #end </div>
+<div class="container">
+  <div class="slider-product our-new-product owl-nav-hidden" style="border-bottom: 1px solid #e9e9e9; margin-bottom: 20px;">
+    <ul class="tabs">
+      <li class="item" rel="tab_1">Agregados recientemente</li>
+      <li class="item" rel="tab_2">Los más vistos</li>
+    </ul>
+    <div class="tab-container space-10">
+      <div id="tab_1" class="tab-content">
+        <div class="product-tab-content products">
+          
+          
+          
+           
+       
+            
+  
+          
+        
+          #foreach ($galleryItem in $galleryItemList) #set( $newURL= $galleryItem.imageUrl.replace('XvZd', 'XvZx') )
+          <div class="item-inner">
+            <div class="product">
+              <div class="product-images"> 
+              <a href="$galleryItem.url" title="product-images"> 
+             
+             
+             <figure>
+              <img class="primary_image" alt="$galleryItem.title" title="$galleryItem.title" src="$newURL">
+              <img class="secondary_image" alt="$galleryItem.title" title="$galleryItem.title" src="$newURL">
+              #if($galleryItem.hasPromotion)
+              #if($galleryItem.promotion.isDiscountTypePrice)
+              <p class="promoRibbonHomeStarred"><span>$galleryItem.promotion.discountPercent</span>&#37; <strong>OFF</strong></p>
+              #elseif ($galleryItem.promotion.isDiscountTypeQuantity && "AR" != "BR")
+              <p class="promoRibbonHomeStarred"><strong class="promoQtyBuy">$galleryItem.promotion.quantityTake<span class="promoQtyBuyX">x</span>$galleryItem.promotion.quantityBuy</strong></p>
+              #end
+              #end 
+           </figure>
+          
+             
+            
+              
+              
+              </a>
+                <div class="action"> </div>
+              </div>
+              <a href="$galleryItem.url" title="$galleryItem.title">
+              <p class="product-title">$galleryItem.title</p>
+              </a>
+              
+              <p class="product-price">
+               <dl id="homePrice">
+                #if ($galleryItem.hasPriceWithDiscount())<del class="ch-price price delprice">#end
+                <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="#if (!$galleryItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPrice()[0]<span class="decimal">,</span><sup>$galleryItem.getSplitPrice()[1]</sup></span> #else <span class="#if (!$galleryItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPrice()[0]</span> #end </dd>
+                #if ($galleryItem.hasPriceWithDiscount())</del>#end
+                
+                #if ($galleryItem.hasPriceWithDiscount())
+                #if ($galleryItem.hasPriceWithDiscount())<ins>#end
+                <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPriceWithDiscount()[0]<span class="decimal">,</span><sup>$galleryItem.getSplitPriceWithDiscount()[1]</sup></span> #else <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPriceWithDiscount()[0]</span> #end </dd>
+                #if ($galleryItem.hasPriceWithDiscount())</ins>#end 
+                #end
+              </dl>
+             </p>
+              
+              
+              
+               #if($galleryItem.hasPromotion && $galleryItem.promotion.isFreeShipping && $galleryItem.send)
+              <div class="promotionFreeShippingSmall"> <span class="arrow-left"></span> <span class="freeShippingText"> Envío gratis </span> </div>
+              #end
+              
             </div>
+          
+          
+          </div>
+          #end
+          
+          
+          
+          
+          
+          <!-- End item -->
+          
         </div>
-        <div class="container">
-                    <div class="slider-product our-new-product owl-nav-hidden" style="border-bottom: 1px solid #e9e9e9; margin-bottom: 20px;">
-                        <ul class="tabs">
-                            <li class="item" rel="tab_1">Agregados recientemente</li>
-                            <li class="item" rel="tab_2">Los más vistos</li>
-                        </ul>
-                        <div class="tab-container space-10">
-                            <div id="tab_1" class="tab-content">
-                                <div class="product-tab-content products">
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/1.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/1b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/2.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/2b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/3.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/3b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/4.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/4b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/5.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/5b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                </div>
-                                <!-- End product-tab-content products -->
-                            </div>
-                            <!-- End tab-content -->
-                            <div id="tab_2" class="tab-content">
-                                <div class="product-tab-content products">
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/6.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/6b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/7.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/7b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/8.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/8b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/9.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/9b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                    <div class="item-inner">
-                                        <div class="product">
-                                            <div class="product-images">
-                                                <a href="producto.html" title="product-images">
-                                                    <img class="primary_image" src="../IMAGES/products/10.jpg" alt=""/>
-                                                    <img class="secondary_image" src="../IMAGES/products/10b.jpg" alt=""/>
-                                                </a>
-                                                <div class="action">
-                                                    
- 
-                                                </div>
-                                            </div>
-                                            <a href="#" title="Nombre"><p class="product-title">Nombre</p></a>
-                                            <p class="product-price">$489.00</p>
-                                            
-                                        </div>
-                                    </div>
-                                    <!-- End item -->
-                                </div>
-                                <!-- End product-tab-content products -->
-                            </div>
-                            <!-- End tab-content -->
-                        </div>
-                    </div>
-                    <!-- End OurNewProduct -->
-                </div>
-                <!-- End container -->
-                <div class="container">
-                    <div class="title-page2 size-50">
-                        <h3 style="font-size: 60px;line-height: 60px;">Nuestros productos</h3>
-                    </div>
-                    <div class="slider-product our-new-product owl-nav-hidden">
-                        <ul class="tabs" style="margin-bottom:50px;">
-                            <li class="item" rel="tab_3">Mujer</li>
-                            <li class="item" rel="tab_4">Hombre</li>
-                            <li class="item" rel="tab_5">Adolescente</li>
-                        </ul>
-                        <div class="tab-container space-10">
-                            <div id="tab_3" class="tab-content">
-                                <div class="cat-box-home3">
-                        <div class="row">
-                            <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/remeras.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Remeras y <br>musculosas</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="padding-right:0px">
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/calzado.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Calzados</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/vestidos.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Vestidos <br>y faldas</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="padding-right:0px">
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/jeans.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Jeans</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/lenceria.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Lencería</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End row -->
-                </div>
-                            </div>
-                            <!-- End tab-content -->
-                            <div id="tab_4" class="tab-content">
-                                <div class="cat-box-home3">
-                        <div class="row">
-                            <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/abrigoshombre.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Abrigos</h3>
-                                    <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="padding-right:0px">
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/calzadohombre.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Calzados</h3>
-                                    <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/camisashombre.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Camisas</h3>
-                                    <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="padding-right:0px">
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/jeanshombre.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Jeans</h3>
-                                    <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/ropainterior.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Ropa interior</h3>
-                                    <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End row -->
-                </div>
-                            </div>
-                            <!-- End tab-content -->
-                            <div id="tab_5" class="tab-content">
-                                <div class="cat-box-home3">
-                        <div class="row">
-                            <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/remeras.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Remeras y <br>musculosas</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="padding-right:0px">
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/calzado.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Calzados</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/vestidos.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Vestidos <br>y faldas</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6" style="padding-right:0px">
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/jeans.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Jeans</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                                <div class="col-md-6" style="margin-bottom:30px;">
-                                <div class="hover-images">
-                                <img src="../IMAGES/lenceria.jpg" alt="banner">
-                                </div>
-                                <div class="text">
-                                    <h3>Lencería</h3>
-                                    <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End row -->
-                </div>
-                            </div>
-                            <!-- End tab-content -->
-                        </div>
-                    </div>
-                    <!-- End OurNewProduct -->
-                </div>
-        <div class="container">
-            <div class="newsletter-home6">
-                <div class="newsletter-content">
-                    <i class="icon icon-envelope-letter"></i>
-                    <h3>Suscribite al newsletter</h3>
-                    <p>Recibí todas nuestras novedades</p>
-                    <form accept-charset="utf-8" method="get" action="#">
-                        <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" value="Ingresá tu email..." onfocus="if(this.value != '') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter your email here...';}"> 
-                        <button type="submit" title="Subscribe" class="button button1 hover-white">Enviar<i class="link-icon-white"></i></button>
-                    </form>
-                </div>
+        <!-- End product-tab-content products --> 
+      </div>
+      <!-- End tab-content -->
+      <div id="tab_2" class="tab-content">
+        <div class="product-tab-content products">
+          <div class="item-inner">
+            <div class="product">
+              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/6.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/6b.jpg" alt=""/> </a>
+                <div class="action"> </div>
+              </div>
+              <a href="#" title="Nombre">
+              <p class="product-title">Nombre</p>
+              </a>
+              <p class="product-price">$489.00</p>
             </div>
-        </div>
-        <!-- End newsletter-home6 -->
-        <div class="container">
-            <div class="newsletter-home4">
-                <a href="index.html" class="col-md-4">
-                    <div class="items">
-                        <div class="text">
-                            <h3>Medios de pago</h3>
-                            <p>cómo pagar nuestros productos</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="envios-devoluciones.html" class="col-md-4">
-                    <div class="items">
-                        <div class="text">
-                            <h3>Envios y devoluciones</h3>
-                            <p>costos y forma de envio</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="talles.html" class="col-md-4">
-                    <div class="items">
-                        <div class="text">
-                            <h3>Tabla de medidas</h3>
-                            <p>Conoce cual es tu talle</p>
-                        </div>
-                    </div>
-                </a>
+          </div>
+          <!-- End item -->
+          <div class="item-inner">
+            <div class="product">
+              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/7.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/7b.jpg" alt=""/> </a>
+                <div class="action"> </div>
+              </div>
+              <a href="#" title="Nombre">
+              <p class="product-title">Nombre</p>
+              </a>
+              <p class="product-price">$489.00</p>
             </div>
+          </div>
+          <!-- End item -->
+          <div class="item-inner">
+            <div class="product">
+              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/8.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/8b.jpg" alt=""/> </a>
+                <div class="action"> </div>
+              </div>
+              <a href="#" title="Nombre">
+              <p class="product-title">Nombre</p>
+              </a>
+              <p class="product-price">$489.00</p>
+            </div>
+          </div>
+          <!-- End item -->
+          <div class="item-inner">
+            <div class="product">
+              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/9.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/9b.jpg" alt=""/> </a>
+                <div class="action"> </div>
+              </div>
+              <a href="#" title="Nombre">
+              <p class="product-title">Nombre</p>
+              </a>
+              <p class="product-price">$489.00</p>
+            </div>
+          </div>
+          <!-- End item -->
+          <div class="item-inner">
+            <div class="product">
+              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/10.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/10b.jpg" alt=""/> </a>
+                <div class="action"> </div>
+              </div>
+              <a href="#" title="Nombre">
+              <p class="product-title">Nombre</p>
+              </a>
+              <p class="product-price">$489.00</p>
+            </div>
+          </div>
+          <!-- End item --> 
         </div>
-        <div id="back-to-top">
-            <i class="fa fa-long-arrow-up"></i>
+        <!-- End product-tab-content products --> 
+      </div>
+      <!-- End tab-content --> 
+    </div>
+  </div>
+  <!-- End OurNewProduct --> 
+</div>
+<!-- End container -->
+<div class="container">
+  <div class="title-page2 size-50">
+    <h3 style="font-size: 60px;line-height: 60px;">Nuestros productos</h3>
+  </div>
+  <div class="slider-product our-new-product owl-nav-hidden">
+    <ul class="tabs" style="margin-bottom:50px;">
+      <li class="item" rel="tab_3">Mujer</li>
+      <li class="item" rel="tab_4">Hombre</li>
+      <li class="item" rel="tab_5">Adolescente</li>
+    </ul>
+    <div class="tab-container space-10">
+      <div id="tab_3" class="tab-content">
+        <div class="cat-box-home3">
+          <div class="row">
+            <div class="col-md-6" style="margin-bottom:30px;">
+              <div class="hover-images"> <img src="../IMAGES/remeras.jpg" alt="banner"> </div>
+              <div class="text">
+                <h3>Remeras y <br>
+                  musculosas</h3>
+                <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+            </div>
+            <div class="col-md-6" style="padding-right:0px">
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/calzado.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Calzados</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/vestidos.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Vestidos <br>
+                    y faldas</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+            </div>
+            <div class="col-md-6" style="padding-right:0px">
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/jeans.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Jeans</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/lenceria.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Lencería</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+            </div>
+          </div>
+          <!-- End row --> 
         </div>
+      </div>
+      <!-- End tab-content -->
+      <div id="tab_4" class="tab-content">
+        <div class="cat-box-home3">
+          <div class="row">
+            <div class="col-md-6" style="margin-bottom:30px;">
+              <div class="hover-images"> <img src="../IMAGES/abrigoshombre.jpg" alt="banner"> </div>
+              <div class="text">
+                <h3>Abrigos</h3>
+                <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a> </div>
+            </div>
+            <div class="col-md-6" style="padding-right:0px">
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/calzadohombre.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Calzados</h3>
+                  <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/camisashombre.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Camisas</h3>
+                  <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+            </div>
+            <div class="col-md-6" style="padding-right:0px">
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/jeanshombre.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Jeans</h3>
+                  <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/ropainterior.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Ropa interior</h3>
+                  <a class="button button1 hover-black" href="productos-hombre.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+            </div>
+          </div>
+          <!-- End row --> 
+        </div>
+      </div>
+      <!-- End tab-content -->
+      <div id="tab_5" class="tab-content">
+        <div class="cat-box-home3">
+          <div class="row">
+            <div class="col-md-6" style="margin-bottom:30px;">
+              <div class="hover-images"> <img src="../IMAGES/remeras.jpg" alt="banner"> </div>
+              <div class="text">
+                <h3>Remeras y <br>
+                  musculosas</h3>
+                <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+            </div>
+            <div class="col-md-6" style="padding-right:0px">
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/calzado.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Calzados</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/vestidos.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Vestidos <br>
+                    y faldas</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+            </div>
+            <div class="col-md-6" style="padding-right:0px">
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/jeans.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Jeans</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+              <div class="col-md-6" style="margin-bottom:30px;">
+                <div class="hover-images"> <img src="../IMAGES/lenceria.jpg" alt="banner"> </div>
+                <div class="text">
+                  <h3>Lencería</h3>
+                  <a class="button button1 hover-black" href="productos.html">VER<i class="link-icon-black"></i></a> </div>
+              </div>
+            </div>
+          </div>
+          <!-- End row --> 
+        </div>
+      </div>
+      <!-- End tab-content --> 
+    </div>
+  </div>
+  <!-- End OurNewProduct --> 
+</div>
+<div class="container">
+  <div class="newsletter-home6">
+    <div class="newsletter-content"> <i class="icon icon-envelope-letter"></i>
+      <h3>Suscribite al newsletter</h3>
+      <p>Recibí todas nuestras novedades</p>
+      <form accept-charset="utf-8" method="get" action="#">
+        <input type="text" name="email" id="newsletter" title="Sign up for our newsletter" class="input-text required-entry validate-email" value="Ingresá tu email..." onfocus="if(this.value != '') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Enter your email here...';}">
+        <button type="submit" title="Subscribe" class="button button1 hover-white">Enviar<i class="link-icon-white"></i></button>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- End newsletter-home6 -->
+<div class="container">
+  <div class="newsletter-home4"> <a href="index.html" class="col-md-4">
+    <div class="items">
+      <div class="text">
+        <h3>Medios de pago</h3>
+        <p>cómo pagar nuestros productos</p>
+      </div>
+    </div>
+    </a> <a href="envios-devoluciones.html" class="col-md-4">
+    <div class="items">
+      <div class="text">
+        <h3>Envios y devoluciones</h3>
+        <p>costos y forma de envio</p>
+      </div>
+    </div>
+    </a> <a href="talles.html" class="col-md-4">
+    <div class="items">
+      <div class="text">
+        <h3>Tabla de medidas</h3>
+        <p>Conoce cual es tu talle</p>
+      </div>
+    </div>
+    </a> </div>
+</div>
+<div id="back-to-top"> <i class="fa fa-long-arrow-up"></i> </div>
