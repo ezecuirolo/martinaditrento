@@ -398,3 +398,32 @@ body#page-VIP .wrapper.main {
     width: 110%;
     margin-left: -10%;
 }
+.primary_image{
+	background-position:center center;
+	background-size:auto 100% ;
+	background-repeat:no-repeat;
+}
+.secondary_image{
+	background-position:center center;
+	background-size:auto 100% ;
+	background-repeat:no-repeat;
+}
+.product-images img{
+	opacity:0;
+}
+.secondary_image{
+	position:absolute;
+	top:0;
+	left:0;
+	opacity:0;
+}
+.secondary_image img, .primary_image img{
+	width:100%;
+	height:auto;
+}
+.products .product:hover .primary_image{
+	opacity:0;
+}
+.products .product:hover .secondary_image{
+	opacity:1;
+}

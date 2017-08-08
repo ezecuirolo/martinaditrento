@@ -25,48 +25,28 @@
     </ul>
     <div class="tab-container space-10">
       <div id="tab_1" class="tab-content">
-        <div class="product-tab-content products">
-          
-          
-          
-           
-       
-            
-  
-          
-        
-          #foreach ($galleryItem in $galleryItemList) #set( $newURL= $galleryItem.imageUrl.replace('XvZd', 'XvZx') )
+        <div class="product-tab-content products"> #foreach ($galleryItem in $galleryItemList) #set( $newURL= $galleryItem.imageUrl.replace('XvZd', 'XvZx') )
           <div class="item-inner">
             <div class="product">
-              <div class="product-images"> 
-              <a href="$galleryItem.url" title="product-images"> 
-             
-             
-             <figure>
-              <img class="primary_image" alt="$galleryItem.title" title="$galleryItem.title" src="$newURL">
-              <img class="secondary_image" alt="$galleryItem.title" title="$galleryItem.title" src="$newURL">
-              #if($galleryItem.hasPromotion)
-              #if($galleryItem.promotion.isDiscountTypePrice)
-              <p class="promoRibbonHomeStarred"><span>$galleryItem.promotion.discountPercent</span>&#37; <strong>OFF</strong></p>
-              #elseif ($galleryItem.promotion.isDiscountTypeQuantity && "AR" != "BR")
-              <p class="promoRibbonHomeStarred"><strong class="promoQtyBuy">$galleryItem.promotion.quantityTake<span class="promoQtyBuyX">x</span>$galleryItem.promotion.quantityBuy</strong></p>
-              #end
-              #end 
-           </figure>
-          
-             
-            
-              
-              
-              </a>
+              <div class="product-images"> <a href="$galleryItem.url" title="product-images">
+                <figure>
+                  <div class="primary_image" style="background-image:url($newURL)"> <img alt="$galleryItem.title" title="$galleryItem.title" src="../IMAGES/blank.png"> </div>
+                  <div class="secondary_image" style="background-image:url($newURL)"> <img alt="$galleryItem.title" title="$galleryItem.title" src="../IMAGES/blank.png"> </div>
+                  #if($galleryItem.hasPromotion)
+                  #if($galleryItem.promotion.isDiscountTypePrice)
+                  <p class="promoRibbonHomeStarred"><span>$galleryItem.promotion.discountPercent</span>&#37; <strong>OFF</strong></p>
+                  #elseif ($galleryItem.promotion.isDiscountTypeQuantity && "AR" != "BR")
+                  <p class="promoRibbonHomeStarred"><strong class="promoQtyBuy">$galleryItem.promotion.quantityTake<span class="promoQtyBuyX">x</span>$galleryItem.promotion.quantityBuy</strong></p>
+                  #end
+                  #end </figure>
+                </a>
                 <div class="action"> </div>
               </div>
               <a href="$galleryItem.url" title="$galleryItem.title">
               <p class="product-title">$galleryItem.title</p>
               </a>
-              
               <p class="product-price">
-               <dl id="homePrice">
+              <dl id="homePrice">
                 #if ($galleryItem.hasPriceWithDiscount())<del class="ch-price price delprice">#end
                 <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="#if (!$galleryItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPrice()[0]<span class="decimal">,</span><sup>$galleryItem.getSplitPrice()[1]</sup></span> #else <span class="#if (!$galleryItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPrice()[0]</span> #end </dd>
                 #if ($galleryItem.hasPriceWithDiscount())</del>#end
@@ -77,94 +57,63 @@
                 #if ($galleryItem.hasPriceWithDiscount())</ins>#end 
                 #end
               </dl>
-             </p>
-              
-              
-              
-               #if($galleryItem.hasPromotion && $galleryItem.promotion.isFreeShipping && $galleryItem.send)
+              </p>
+              #if($galleryItem.hasPromotion && $galleryItem.promotion.isFreeShipping && $galleryItem.send)
               <div class="promotionFreeShippingSmall"> <span class="arrow-left"></span> <span class="freeShippingText"> Envío gratis </span> </div>
-              #end
-              
-            </div>
-          
-          
+              #end </div>
           </div>
-          #end
-          
-          
-          
-          
-          
-          <!-- End item -->
-          
+          #end 
+          <!-- End item --> 
         </div>
         <!-- End product-tab-content products --> 
       </div>
       <!-- End tab-content -->
       <div id="tab_2" class="tab-content">
-        <div class="product-tab-content products">
+        
+        <div class="product-tab-content products"> 
+        #foreach ($outstandingItem in $outstandingItemList) #set( $newURL= $outstandingItem.imageUrl.replace('XvZd', 'XvZx') )
           <div class="item-inner">
             <div class="product">
-              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/6.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/6b.jpg" alt=""/> </a>
+              <div class="product-images"> <a href="$outstandingItem.url" title="product-images">
+                <figure>
+                  <div class="primary_image" style="background-image:url($newURL)"> <img alt="$outstandingItem.title" title="$outstandingItem.title" src="../IMAGES/blank.png"> </div>
+                  <div class="secondary_image" style="background-image:url($newURL)"> <img alt="$outstandingItem.title" title="$outstandingItem.title" src="../IMAGES/blank.png"> </div>
+                  #if($outstandingItem.hasPromotion)
+                  #if($outstandingItem.promotion.isDiscountTypePrice)
+                  <p class="promoRibbonHomeStarred"><span>$outstandingItem.promotion.discountPercent</span>&#37; <strong>OFF</strong></p>
+                  #elseif ($outstandingItem.promotion.isDiscountTypeQuantity && "AR" != "BR")
+                  <p class="promoRibbonHomeStarred"><strong class="promoQtyBuy">$outstandingItem.promotion.quantityTake<span class="promoQtyBuyX">x</span>$outstandingItem.promotion.quantityBuy</strong></p>
+                  #end
+                  #end </figure>
+                </a>
                 <div class="action"> </div>
               </div>
-              <a href="#" title="Nombre">
-              <p class="product-title">Nombre</p>
+              <a href="$outstandingItem.url" title="$outstandingItem.title">
+              <p class="product-title">$outstandingItem.title</p>
               </a>
-              <p class="product-price">$489.00</p>
-            </div>
+              <p class="product-price">
+              <dl id="homePrice">
+                #if ($outstandingItem.hasPriceWithDiscount())<del class="ch-price price delprice">#end
+                <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="#if (!$outstandingItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPrice()[0]<span class="decimal">,</span><sup>$outstandingItem.getSplitPrice()[1]</sup></span> #else <span class="#if (!$outstandingItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPrice()[0]</span> #end </dd>
+                #if ($outstandingItem.hasPriceWithDiscount())</del>#end
+                
+                #if ($outstandingItem.hasPriceWithDiscount())
+                #if ($outstandingItem.hasPriceWithDiscount())<ins>#end
+                <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPriceWithDiscount()[0]<span class="decimal">,</span><sup>$outstandingItem.getSplitPriceWithDiscount()[1]</sup></span> #else <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPriceWithDiscount()[0]</span> #end </dd>
+                #if ($outstandingItem.hasPriceWithDiscount())</ins>#end 
+                #end
+              </dl>
+              </p>
+              #if($outstandingItem.hasPromotion && $outstandingItem.promotion.isFreeShipping && $outstandingItem.send)
+              <div class="promotionFreeShippingSmall"> <span class="arrow-left"></span> <span class="freeShippingText"> Envío gratis </span> </div>
+              #end </div>
           </div>
-          <!-- End item -->
-          <div class="item-inner">
-            <div class="product">
-              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/7.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/7b.jpg" alt=""/> </a>
-                <div class="action"> </div>
-              </div>
-              <a href="#" title="Nombre">
-              <p class="product-title">Nombre</p>
-              </a>
-              <p class="product-price">$489.00</p>
-            </div>
-          </div>
-          <!-- End item -->
-          <div class="item-inner">
-            <div class="product">
-              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/8.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/8b.jpg" alt=""/> </a>
-                <div class="action"> </div>
-              </div>
-              <a href="#" title="Nombre">
-              <p class="product-title">Nombre</p>
-              </a>
-              <p class="product-price">$489.00</p>
-            </div>
-          </div>
-          <!-- End item -->
-          <div class="item-inner">
-            <div class="product">
-              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/9.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/9b.jpg" alt=""/> </a>
-                <div class="action"> </div>
-              </div>
-              <a href="#" title="Nombre">
-              <p class="product-title">Nombre</p>
-              </a>
-              <p class="product-price">$489.00</p>
-            </div>
-          </div>
-          <!-- End item -->
-          <div class="item-inner">
-            <div class="product">
-              <div class="product-images"> <a href="producto.html" title="product-images"> <img class="primary_image" src="../IMAGES/products/10.jpg" alt=""/> <img class="secondary_image" src="../IMAGES/products/10b.jpg" alt=""/> </a>
-                <div class="action"> </div>
-              </div>
-              <a href="#" title="Nombre">
-              <p class="product-title">Nombre</p>
-              </a>
-              <p class="product-price">$489.00</p>
-            </div>
-          </div>
+          #end 
           <!-- End item --> 
         </div>
         <!-- End product-tab-content products --> 
+      </div>
+        
       </div>
       <!-- End tab-content --> 
     </div>
