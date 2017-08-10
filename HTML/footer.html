@@ -598,9 +598,70 @@ function slider_owl(slider_id, visible1, visible2, visible3, visible4, margin) {
             $(".item-gallery .link2").html(function(buscayreemplaza, reemplaza) {
                 return reemplaza.replace(/Z1X/, 'Z2X');
             });
-			
+
 			$(".list-prod .link2").html(function(buscayreemplaza, reemplaza) {
                 return reemplaza.replace(/Z1X/, 'Z2X');
             });
         });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.ch-thumbail-zoom').remove();
+
+      $('#my-var-container + input#itemId + span').remove();
+      $('#my-var-container + input#itemId').remove();
+      $('#my-var-container').remove();
+
+      $('.contentBtnBuy').prepend("<div class='cantidad'></div>");
+      $('.cantidad').prepend("<span class='mas'></span>");
+      $('.cantidad').append("<input type='number' name='cantidad' value='1' min='1'>");
+      $('.cantidad').append("<span class='menos'></span>");
+
+      $('.contentBtnBuy').prepend("<select class='modelos'></select>");
+      var modelo = ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4',]; // Esto tiene que venir dinámico
+      $(modelo).each(function(){
+        $('.modelos').append("<option>" + this + "</option>");
+      });
+
+      $('.contentBtnBuy').prepend("<select class='talles'></select>");
+      var talles = ['Talle 1', 'Talle 2', 'Talle 3', 'Talle 4',]; // Esto tiene que venir dinámico
+      $(talles).each(function(){
+        $('.talles').append("<option>" + this + "</option>");
+      });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    $(".vip-pub-image").children().each(function() {
+      $(this).html($(this).html().replace(/XvZc/g,"XvZx"));
+    });
+    $(".ch-viewervip-display").children().each(function() {
+      $(this).html($(this).html().replace(/XvZm/g,"XvZx"));
+    });
+    $(".vip-pub-image").children().each(function() {
+      $(this).html($(this).html().replace(/XvZc/g,"XvZx"));
+    });
+    $(".rowsWrapper li").children().each(function() {
+    $(this).html($(this).html().replace(/XvZd/g,"XvZc"));
+    });
+
+    $(".list-prod li").children().each(function() {
+    $(this).html($(this).html().replace(/XvZd/g,"XvZc"));
+    });
+    $(".item-gallery .link2").html(function(buscayreemplaza, reemplaza) {
+    return reemplaza.replace(/Z1X/, 'Z2X');
+    });
+    $(".list-prod .link2").html(function(buscayreemplaza, reemplaza) {
+    return reemplaza.replace(/Z1X/, 'Z2X');
+    });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.mas');
+      $('.menos');
+    });
 </script>
