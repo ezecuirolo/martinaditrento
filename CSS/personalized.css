@@ -327,119 +327,11 @@ body#page-VIP .wrapper.main {
 	position: relative;
 	margin: 0;
 }
-ul.ch-carousel-list {
-  width: 130px !important;
-}
 
 .component.picviewer .ch-carousel-list li {
-  margin: 0 !important;
+  margin: 0;
   width: 130px !important;
   height: auto !important;
-  margin-bottom: 25px !important;
-}
-
-.component.picviewer .ch-carousel-list li img {
-  display: block;
-  margin: auto;
-}
-
-.ch-viewervip-triggers ul {
-  float: right;
-}
-
-.ch-viewervip-triggers ul li {
-  border: 1px solid white;
-  display: inline-block;
-  float: none;
-  height: 40px;
-  margin: 0 5px 6px 0;
-  opacity: 0.3;
-  position: relative;
-  width: 40px;
-}
-
-.ch-viewervip-triggers .ch-thumbnail-on {
-  padding: 0;
-}
-
-.ch-viewervip-display {
-  display: inline-block;
-  width: 80%;
-}
-
-ul.clearfix.ch-viewervip-content {
-  float: left;
-  width: 130%;
-}
-
-.ch-carousel.ch-viewervip-triggers {
-  float: right;
-  width: 20%;
-}
-
-ul.content-list.no-achicar.ch-carousel-list {
-  width: 4569px !important;
-}
-
-ul.content-list.no-achicar.ch-carousel-list li {
-  margin: 0 !important;
-  width: 1523px !important;
-  height: 100% !important;
-}
-
-.vipWrapper {
-  width: 30%;
-  margin-left: 50px;
-}
-
-.component.vip h1 {
-  font-family: "Poppins" !important;
-  font-size: 30px !important;
-  line-height: 30px !important;
-  position: relative !important;
-  text-transform: capitalize !important;
-  font-weight: 400 !important;
-  color: #000 !important;
-  margin-bottom: 0px !important;
-  margin-top: 20px !important;
-  padding-bottom: 0px !important;
-}
-
-span#fb-like-button.FbLikeButton {
-  display: none !important;
-}
-
-.component.vip span.ch-price.price,
-.component.vip span.ch-price sup {
-  display: block;
-  font-style: normal;
-  color: #e95252 !important;
-  margin-top: 10px !important;
-  font-size: 30px !important;
-  font-weight: 400 !important;
-  font-family: "Poppins" !important;
-}
-
-.component.vip dd {
-  font-style: normal;
-  color: #979797;
-  font-size: 12px;
-  font-weight: 400;
-  font-family: "Poppins";
-  padding-bottom: 30px;
-}
-
-dl.priceInfo dd.installments span.withMP {
-  margin-left: 5px;
-}
-
-dl,
-.PaymentList li {
-  margin-bottom: 0;
-}
-
-.PaymentList li:first-child {
-  height: 70px;
 }
 
 /* Both are the same elements, but it can apply styles before the component initialization */
@@ -539,4 +431,66 @@ dl,
 }
 .products .product:hover .secondary_image{
 	opacity:1;
+}
+.component.shipTable .filas:nth-child(1) {
+    display: none;
+}
+.component.shipTable .thead li, .component.shipTable .tbody li {
+    position: static;
+}
+td.product-price{
+	color:#000;
+    font-weight: 600;
+}
+li.colPrice.ch-price.price.cart-item-price {
+    color: #000;
+    font-weight: 600;
+}
+.carritoresp .ch-price sup {
+    font-size: 10px;
+    top: -5px;
+}
+.component.shipTable .tbody {
+    display: table;
+	width: 100%;
+    border-collapse: separate;
+    padding: 10px 0;
+}
+.component.shipTable .tbody li.deleteRow, .component.shipTable .tbody li.colFoto, .component.shipTable .tbody li.itemDesc {
+	float:none;
+    display: table-cell;
+	vertical-align: middle;
+}
+.component.shipTable .tbody li.colTitulo, .component.shipTable .tbody li.colCant, .component.shipTable .tbody li.colPrice{
+		float:none;
+    display: table-cell;
+}
+ .component.shipTable .tbody li.itemDesc ul{
+	 width:100%;
+    display: table;
+}
+.component.shipTable .colPrice {
+    width: 20%;
+    text-align: right;
+}
+.component.shipTable .colCant {
+    width: 10%;
+    text-align: right;
+}
+.component.shipTable .colTitulo {
+    width: 70%;
+}
+.component.shipTable .tbody .deleteRow {
+    padding-top: 0;
+}
+input.itemQtyField{
+	text-align:center;
+}
+.component.shipTable .colFoto img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+.delete {
+    background: transparent url(../IMAGES/sprite.png) 0 -89px no-repeat;
 }

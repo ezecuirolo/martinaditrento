@@ -27,7 +27,7 @@ body,td,th {
 	font-family: ralewayregular;
 }
 body {
-	background-color: #030;
+	background-color: #FFF;
 }
 </style>
 <meta http-equiv="Content-Type: application/xhtml+xml; charset=UTF-8">

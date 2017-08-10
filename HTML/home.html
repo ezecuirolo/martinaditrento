@@ -1,12 +1,12 @@
 <div class="container space-30"> #if($showContent)
   #if($showContentImage)
   <div  class="ch-carousel main_banner" data-max-items="1">
-    <ul class="content-list no-achicar">
+    <ul class="content-list">
       #foreach ($contentImage in $contentImageList)
       <li style="height: $contentImageMaxHeight">
         <article class="component article clearfix">
-          <figure>
-            <!--<div class="bot_comprar"><a href="$contentImage.link" target="_self">COMPRAR</a></div>-->
+          <figure> 
+            <!--<div class="bot_comprar"><a href="$contentImage.link" target="_self">COMPRAR</a></div>--> 
             <span> #if($contentImage.hasLink) <a href="$contentImage.link" rel="nofollow" target="_self"> #end <img src="$contentImage.src" alt="$contentImage.alt"> #if($contentImage.hasLink) </a> #end </span> </figure>
         </article>
       </li>
@@ -45,17 +45,16 @@
               <a href="$galleryItem.url" title="$galleryItem.title">
               <p class="product-title">$galleryItem.title</p>
               </a>
-
               <p class="product-price">
               <dl id="homePrice">
                 #if ($galleryItem.hasPriceWithDiscount())<del class="ch-price price delprice">#end
                 <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="#if (!$galleryItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPrice()[0]<span class="decimal">,</span><sup>$galleryItem.getSplitPrice()[1]</sup></span> #else <span class="#if (!$galleryItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPrice()[0]</span> #end </dd>
                 #if ($galleryItem.hasPriceWithDiscount())</del>#end
-
+                
                 #if ($galleryItem.hasPriceWithDiscount())
                 #if ($galleryItem.hasPriceWithDiscount())<ins>#end
                 <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPriceWithDiscount()[0]<span class="decimal">,</span><sup>$galleryItem.getSplitPriceWithDiscount()[1]</sup></span> #else <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$galleryItem.currencyId") $galleryItem.getSplitPriceWithDiscount()[0]</span> #end </dd>
-                #if ($galleryItem.hasPriceWithDiscount())</ins>#end
+                #if ($galleryItem.hasPriceWithDiscount())</ins>#end 
                 #end
               </dl>
               </p>
@@ -63,15 +62,15 @@
               <div class="promotionFreeShippingSmall"> <span class="arrow-left"></span> <span class="freeShippingText"> Envío gratis </span> </div>
               #end </div>
           </div>
-          #end
-          <!-- End item -->
+          #end 
+          <!-- End item --> 
         </div>
-        <!-- End product-tab-content products -->
+        <!-- End product-tab-content products --> 
       </div>
       <!-- End tab-content -->
       <div id="tab_2" class="tab-content">
-
-        <div class="product-tab-content products">
+        
+        <div class="product-tab-content products"> 
         #foreach ($outstandingItem in $outstandingItemList) #set( $newURL= $outstandingItem.imageUrl.replace('XvZd', 'XvZx') )
           <div class="item-inner">
             <div class="product">
@@ -97,11 +96,11 @@
                 #if ($outstandingItem.hasPriceWithDiscount())<del class="ch-price price delprice">#end
                 <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="#if (!$outstandingItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPrice()[0]<span class="decimal">,</span><sup>$outstandingItem.getSplitPrice()[1]</sup></span> #else <span class="#if (!$outstandingItem.hasPriceWithDiscount())ch-price#end price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPrice()[0]</span> #end </dd>
                 #if ($outstandingItem.hasPriceWithDiscount())</del>#end
-
+                
                 #if ($outstandingItem.hasPriceWithDiscount())
                 #if ($outstandingItem.hasPriceWithDiscount())<ins>#end
                 <dd> #if( $RegionalConfig.useDecimals($country) ) <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPriceWithDiscount()[0]<span class="decimal">,</span><sup>$outstandingItem.getSplitPriceWithDiscount()[1]</sup></span> #else <span class="ch-price price">$CurrencyHelper.getCurrencySymbol("$shop.locale.country", "$outstandingItem.currencyId") $outstandingItem.getSplitPriceWithDiscount()[0]</span> #end </dd>
-                #if ($outstandingItem.hasPriceWithDiscount())</ins>#end
+                #if ($outstandingItem.hasPriceWithDiscount())</ins>#end 
                 #end
               </dl>
               </p>
@@ -109,15 +108,17 @@
               <div class="promotionFreeShippingSmall"> <span class="arrow-left"></span> <span class="freeShippingText"> Envío gratis </span> </div>
               #end </div>
           </div>
-          #end
-          <!-- End item -->
+          #end 
+          <!-- End item --> 
         </div>
-        <!-- End product-tab-content products -->
+        <!-- End product-tab-content products --> 
       </div>
-      <!-- End tab-content -->
+        
+      </div>
+      <!-- End tab-content --> 
     </div>
   </div>
-  <!-- End OurNewProduct -->
+  <!-- End OurNewProduct --> 
 </div>
 <!-- End container -->
 <div class="container">
@@ -171,7 +172,7 @@
               </div>
             </div>
           </div>
-          <!-- End row -->
+          <!-- End row --> 
         </div>
       </div>
       <!-- End tab-content -->
@@ -213,7 +214,7 @@
               </div>
             </div>
           </div>
-          <!-- End row -->
+          <!-- End row --> 
         </div>
       </div>
       <!-- End tab-content -->
@@ -257,13 +258,13 @@
               </div>
             </div>
           </div>
-          <!-- End row -->
+          <!-- End row --> 
         </div>
       </div>
-      <!-- End tab-content -->
+      <!-- End tab-content --> 
     </div>
   </div>
-  <!-- End OurNewProduct -->
+  <!-- End OurNewProduct --> 
 </div>
 <div class="container">
   <div class="newsletter-home6">
