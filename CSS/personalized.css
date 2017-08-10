@@ -58,8 +58,7 @@
   display: none;
 }
 
-#homePrice ins span.ch-price.price,
-.price {
+#homePrice ins span.ch-price.price, .price {
   font-size: 18px;
   color: #979797;
   line-height: 34px;
@@ -119,7 +118,7 @@ div.promotionFreeShippingSearch {
 
 .background {
   background: none;
-  //border-bottom: 1px solid #DDDDDD;
+  /*border-bottom: 1px solid #DDDDDD*/;
   height: 56px;
   float: right;
 }
@@ -332,6 +331,249 @@ body#page-VIP .wrapper.main {
   margin: 0;
   width: 130px !important;
   height: auto !important;
+  margin-bottom: 25px !important;
+}
+
+.component.picviewer .ch-carousel-list li img {
+  display: block;
+  margin: auto;
+}
+
+.ch-viewervip-triggers ul {
+  float: right;
+}
+
+.ch-viewervip-triggers ul li {
+  border: 1px solid white;
+  display: inline-block;
+  float: none;
+  height: 40px;
+  margin: 0 5px 6px 0;
+  opacity: 0.3;
+  position: relative;
+  width: 40px;
+}
+
+.ch-viewervip-triggers .ch-thumbnail-on {
+  padding: 0;
+}
+
+.ch-viewervip-display {
+  display: inline-block;
+  width: 80%;
+}
+
+ul.clearfix.ch-viewervip-content {
+  float: left;
+  width: 130%;
+}
+
+.ch-carousel.ch-viewervip-triggers {
+  float: right;
+  width: 20%;
+}
+
+ul.content-list.no-achicar.ch-carousel-list {
+  width: 4569px !important;
+}
+
+ul.content-list.no-achicar.ch-carousel-list li {
+  margin: 0 !important;
+  width: 1523px !important;
+  height: 100% !important;
+}
+
+.vipWrapper {
+  width: 30%;
+  margin-left: 50px;
+}
+
+.component.vip h1 {
+  font-family: "Poppins" !important;
+  font-size: 30px !important;
+  line-height: 30px !important;
+  position: relative !important;
+  text-transform: capitalize !important;
+  font-weight: 400 !important;
+  color: #000 !important;
+  margin-bottom: 0px !important;
+  margin-top: 20px !important;
+  padding-bottom: 0px !important;
+}
+
+span#fb-like-button.FbLikeButton {
+  display: none !important;
+}
+
+.component.vip span.ch-price.price,
+.component.vip span.ch-price sup {
+  display: inline-block;
+  font-style: normal;
+  color: #e95252 !important;
+  font-size: 30px !important;
+  font-weight: 400 !important;
+  font-family: "Poppins" !important;
+}
+
+.component.vip span.ch-price.price {
+  margin-top: 20px !important;
+}
+
+.component.vip span.ch-price sup {
+  margin-top: 8px;
+}
+
+.component.vip dd {
+  font-style: normal;
+  color: #979797;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Poppins";
+  padding-bottom: 30px;
+}
+
+dl.priceInfo dd.installments span.withMP {
+  margin-left: 5px;
+}
+
+dl,
+.PaymentList li {
+  margin-bottom: 0;
+}
+
+.PaymentList li:first-child {
+  height: 70px;
+}
+
+a#allPayments {
+  display: none !important;
+}
+
+li.ShippingData {
+    display: none !important;
+}
+
+.paymentsMP {
+  margin-top: 0 !important;
+}
+
+.ch-viewervip-content li a {
+  width: 100% !important;
+  margin-left: -12%;
+  height: auto;
+}
+
+select.talles,
+select.modelos {
+  height: 40px;
+  border: 2px solid #000;
+  color: #000;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+select.modelos {
+  margin-left: 6px;
+}
+
+input[type="number"]{
+  height: 60px;
+  display: inline-block;
+  position: relative;
+  width: 42px;
+  border: 2px solid #3e3e3e;
+  font-size: 18px;
+}
+
+.cantidad {
+  display: inline-block;
+  position: relative;
+  top: 45px;
+}
+
+.cantidad:after {
+  content: '+';
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  display: inline-block;
+  left: 42px;
+  position: absolute;
+  border-right: 2px solid black;
+  padding-right: 12px;
+  border-top: 2px solid black;
+  padding-left: 10px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid black;
+  cursor: pointer;
+}
+
+span.mas {
+  display: inline-block;
+  width: 32px;
+  height: 30px;
+  position: absolute;
+  z-index: 10;
+  right: -32px;
+  cursor: pointer;
+}
+
+span.menos {
+  display: inline-block;
+  width: 32px;
+  height: 30px;
+  position: absolute;
+  z-index: 10;
+  right: -32px;
+  bottom: 0;
+  cursor: pointer;
+}
+
+
+.cantidad:before {
+  content: '-';
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  display: inline-block;
+  left: 42px;
+  bottom: 0;
+  position: absolute;
+  border-right: 2px solid black;
+  padding-right: 12px;
+  border-top: 1px solid black;
+  padding-left: 12px;
+  padding-top: 2px;
+  border-bottom: 2px solid black;
+}
+
+.contentBtnBuy {
+  width: 60%;
+}
+
+span.ch-thumbail-zoom {
+  display: none !important;
+}
+
+a.button.ch-btn.ch-primary.addCart,
+.component.vip .ch-actions.buttonBuy a {
+  display: inline-block;
+  height: 60px;
+  min-width: 60px;
+  padding: 0 20px;
+  text-align: center;
+  background: transparent;
+  border: 2px solid #3e3e3e;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  line-height: 60px;
+  position: relative;
+  right: -90px;
+  top: -25px;
 }
 
 /* Both are the same elements, but it can apply styles before the component initialization */
@@ -432,6 +674,7 @@ body#page-VIP .wrapper.main {
 .products .product:hover .secondary_image{
 	opacity:1;
 }
+<<<<<<< HEAD
 .component.shipTable .filas:nth-child(1) {
     display: none;
 }
