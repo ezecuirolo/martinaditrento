@@ -7,40 +7,40 @@
 <script type="text/javascript" src="../IMAGES/jquery-1.11.1.min.js"></script>
 
 <div class="pushmenu pushmenu-left cart-box-container">
-  <div class="cart-list"> <span id="close-pushmenu">Cerrar</span> 
+  <div class="cart-list"> <span id="close-pushmenu">Cerrar</span>
     <script>
 $(function() {
-	
+
 	$.ajax({
 		url: "/cart",
 		success: function (data) {
 			var cartLenght = $(data).find('a.delete').length;
-			
+
 			if(cartLenght == 0) {
 			$('.cart-list .total').append('0');
 			}
 			if(cartLenght > 0) {
-				
+
 				$('.cart-list .total').append($(data).find('span#total-to-pay').text());
-				
+
 				$('.cart-icon .icon-itens').text(cartLenght);
-				
+
 				$('.cart-count').text(cartLenght);
-				
+
 				$('.user-cart .preview-itens .itens-empty').remove();
-												
+
 				$(data).find('#cartForm .carritoresp .item:not(.order-price-detail)').each(function(index) {
 					var _ = $(this);
 					$('.user-cart .preview-itens').each(function() {
 						$(this).append('<li class="preview-item"></li>');
 						//Structure
-						
+
 						$(this).find('.preview-item').eq(index).append('<div class="del-col"></div><div class="cart-product-image"></div><div class="text"></div>');
 						//Img
 						$(this).find('.preview-item').eq(index).find('.cart-product-image').append('<img class="item-photo" src="' + _.find('.colFoto img').attr('src') + '">');
-						
+
 						$(this).find('.preview-item').eq(index).find('.del-col').append('<a href="' + _.find('a.delete').attr('href') + '" class="delete-item"></a>');
-						
+
 						//Title
 						$(this).find('.preview-item').eq(index).find('.text').append('<p class="info-title">' + _.find('.itemDesc .colTitulo .title').text() + '<br>Quantidade: ' + _.find('.itemDesc .colCant .itemQtyField').val() +'</p>');
 						if($(this).find('.itemDesc .colTitulo .variation-details').length) {
@@ -57,13 +57,13 @@ $(function() {
 						if(!$(this).find('.itemDesc .colTitulo .promotionPrice').text() == '') {
 							$(this).find('.preview-item').eq(index).find('.text').append('<p class="info-discount">' + _.find('.itemDesc .colTitulo .promotionPrice').text() + '</p>');
 						}
-						
+
 					})
 				});
-				
-				
+
+
 				//$('body#page-CART').find('.total').append(find('#total-to-pay').attr('data-cost'));
-				
+
 				//$('body#page-CART').html($('body#page-CART').html().replace(/0/g, find('#total-to-pay').attr('data-cost')));
 			}
 		}
@@ -88,10 +88,10 @@ $(function() {
     <div class="cart-bottom">
       <p class="total"><span>Total:</span></p>
       <a class="checkout" href="/cart" title="">Pagar <i class="link-icon-white"></i></a> <a class="edit-cart" href="/cart" title="edit cart">Editar mi carrito</a> </div>
-    <!-- End cart bottom --> 
+    <!-- End cart bottom -->
   </div>
 </div>
-<!-- End cart --> 
+<!-- End cart -->
 <!-- End pushmenu -->
 <div class="wrappage">
 <header id="header" class="header-v3">
@@ -99,7 +99,7 @@ $(function() {
     <div class="container">
       <div class="topbar-left">
         <div class="social"> <a href="#" title="instagram"><i class="fa fa-instagram"></i></a> <a href="#" title="facebook"><i class="fa fa-facebook"></i></a> <a href="#" title="twitter"><i class="fa fa-twitter"></i></a> <a href="#" title="vimeo"><i class="fa fa-vimeo"></i></a> </div>
-        <!-- End Social --> 
+        <!-- End Social -->
       </div>
       <!-- End topBar-left -->
       <div class="titulo">
@@ -110,13 +110,13 @@ $(function() {
           <div class="cart">
             <p class="icon-cart"> <i class="icons icon-bag"></i> <span class="cart-count">0</span> </p>
           </div>
-          <!-- End cart --> 
+          <!-- End cart -->
         </div>
-        <!-- End SignIn --> 
+        <!-- End SignIn -->
       </div>
-      <!-- End topbar-right --> 
+      <!-- End topbar-right -->
     </div>
-    <!-- End container --> 
+    <!-- End container -->
   </div>
   <!-- End Top Bar -->
   <div class="header-top">
@@ -125,15 +125,15 @@ $(function() {
         <p class="icon-menu-mobile"><i class="fa fa-bars" ></i></p>
         <div class="logo"><a href="/" title="Martina di Trento"><img src="../IMAGES/logo.png" alt="Martina di Trento"></a></div>
         <div class="logo-mobile"><a href="/" title="Martina di Trento"><img src="../IMAGES/logo.png" alt="Martina di Trento"></a></div>
-        <nav class="mega-menu"> 
+        <nav class="mega-menu">
           <!-- Brand and toggle get grouped for better mobile display -->
           <ul class="nav navbar-nav" id="navbar">
             <li class="level1 active"><a href="/" title="Home">Home</a></li>
             #foreach( $categoryLevel1 in $level1CategoryList )
             #set($newName= $categoryLevel1.name.toLowerCase())
-            
+
             #set($newNameFinal=$newName.replace(" ", ""))
-            
+
             #set( $newURLHeader= "../IMAGES/"+$newNameFinal+"_menu.jpg")
             <li class="level1 dropdown"> <a href="$categoryLevel1.url" title="$categoryLevel1.name">$categoryLevel1.name</a>
               <div class="sub-menu dropdown-menu">
@@ -148,10 +148,10 @@ $(function() {
                   <li class="level2"> <img src="$newURLHeader" width="460" height="761" alt="$newURLHeader"/> </li>
                 </ul>
               </div>
-              <!-- End Dropdow Menu --> 
+              <!-- End Dropdow Menu -->
             </li>
             #end
-            <li class="level1"><a href="quienessomos.html" title="ShortCode" target="_self">QUIENES SOMOS</a> </li>
+            <li class="level1"><a href="/quienes-somos_4xST" title="ShortCode" target="_self">QUIENES SOMOS</a> </li>
             <li class="level1"><a href="contacto.html" title="ShortCode" target="_self">CONTACTO</a> </li>
           </ul>
         </nav>
@@ -166,7 +166,7 @@ $(function() {
             </span>
           </form>
         </div>
-        
+
         <!-- End search -->
         <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
           <div class="modal-dialog modal-lg">
@@ -181,19 +181,19 @@ $(function() {
                   <span class="input-group-btn">
                   <button class="btn btn-default button_search" type="button"><i data-toggle="dropdown" class="icons icon-magnifier dropdown-toggle"></i></button>
                   </span> </div>
-                <!-- /input-group --> 
-                
+                <!-- /input-group -->
+
               </div>
             </div>
-            <!-- /.modal-content --> 
+            <!-- /.modal-content -->
           </div>
-          <!-- /.modal-dialog --> 
+          <!-- /.modal-dialog -->
         </div>
       </div>
-      <!-- End SignIn --> 
+      <!-- End SignIn -->
     </div>
   </div>
-  <!-- End container --> 
-  <!-- End header-top --> 
+  <!-- End container -->
+  <!-- End header-top -->
 </header>
 <!-- /header -->
