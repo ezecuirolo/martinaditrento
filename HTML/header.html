@@ -6,18 +6,10 @@
         <link rel="shortcut icon" href="../IMAGES/favicon.png" />
         <script type="text/javascript" src="../IMAGES/jquery-1.11.1.min.js"></script>
         
-        
-        
- <div class="pushmenu pushmenu-left cart-box-container">
+        <div class="pushmenu pushmenu-left cart-box-container">
         <div class="cart-list">
             <span id="close-pushmenu">Cerrar</span>
-           
-           
-           
-           
-           
-           
-           
+       
 <script>
 $(function() {
 	
@@ -37,9 +29,12 @@ $(function() {
 						$(this).append('<div class="preview-item"></div>');
 						//Structure
 						
-						$(this).find('.preview-item').eq(index).append('<div class="item-img"></div><div class="item-info"></div>');
+						$(this).find('.preview-item').eq(index).append('<div class="del-col"></div><div class="item-img"></div><div class="item-info"></div>');
 						//Img
 						$(this).find('.preview-item').eq(index).find('.item-img').append('<img class="item-photo" src="' + _.find('.colFoto img').attr('src') + '">');
+						
+						$(this).find('.preview-item').eq(index).find('.del-col').append('<a href="' + _.find('a.delete').attr('href') + '" class="delete"><span>Eliminar</span></a>');
+						
 						//Title
 						$(this).find('.preview-item').eq(index).find('.item-info').append('<p class="info-title">' + _.find('.itemDesc .colTitulo .title').text() + '<br>Quantidade: ' + _.find('.itemDesc .colCant .itemQtyField').val() +'</p>');
 						if($(this).find('.itemDesc .colTitulo .variation-details').length) {
