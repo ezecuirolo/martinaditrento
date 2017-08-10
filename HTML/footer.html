@@ -612,9 +612,9 @@ function slider_owl(slider_id, visible1, visible2, visible3, visible4, margin) {
       $('#my-var-container').remove();
 
       $('.contentBtnBuy').prepend("<div class='cantidad'></div>");
-      $('.cantidad').prepend("<span class='mas'></span>");
-      $('.cantidad').append("<input type='number' name='cantidad' value='1' min='1'>");
-      $('.cantidad').append("<span class='menos'></span>");
+      $('.cantidad').prepend("<span class='mas' id='maas'></span>");
+      $('.cantidad').append("<input type='number' name='cantidad' id='cantidad_input' value='1' min='1'>");
+      $('.cantidad').append("<span class='menos' id='meenos'></span>");
 
       $('.contentBtnBuy').prepend("<select class='modelos'></select>");
       var modelo = ['Modelo 1', 'Modelo 2', 'Modelo 3', 'Modelo 4',]; // Esto tiene que venir dinámico
@@ -658,8 +658,18 @@ function slider_owl(slider_id, visible1, visible2, visible3, visible4, margin) {
 </script>
 
 <script type="text/javascript">
+var cant = 1;
     $(document).ready(function(){
-      $('.mas');
-      $('.menos');
+      $('#maas').click(function(){
+        $('#cantidad_input').val( cant + 1 );
+        cant += 1;
+      });
+
+      $('#meenos').click(function(){
+        if($('#cantidad_input').val() > 1){
+          $('#cantidad_input').val( cant - 1 );
+          cant -= 1;
+        }
+      });
     });
 </script>

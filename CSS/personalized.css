@@ -334,6 +334,10 @@ body#page-VIP .wrapper.main {
   margin-bottom: 25px !important;
 }
 
+#picviewer ul.ch-carousel-list {
+  width: 130px !important;
+}
+
 .component.picviewer .ch-carousel-list li img {
   display: block;
   margin: auto;
@@ -536,7 +540,7 @@ span.menos {
   font-weight: bold;
   color: #000;
   display: inline-block;
-  left: 42px;
+  left: 41px;
   bottom: 0;
   position: absolute;
   border-right: 2px solid black;
